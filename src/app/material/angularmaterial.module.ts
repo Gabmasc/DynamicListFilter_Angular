@@ -6,11 +6,13 @@ import {MatDividerModule} from '@angular/material/divider';
 @NgModule({
     imports:[
         MatListModule,
-        MatDividerModule
+        MatDividerModule,
+        
     ],
     exports:[
         MatListModule,
-        MatDividerModule
+        MatDividerModule,
+
     ]
 })
 export class AngularMaterialModule {}
