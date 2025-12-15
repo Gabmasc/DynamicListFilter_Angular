@@ -47,7 +47,6 @@ export const UserList: IUser[] = [
             ultimoacesso: "2025-02-15T16:30:00Z"
         }
     },
-    // ====== +18 NOVOS OBJETOS AQUI ======
     {
         nome: "Carlos Mendes",
         email: "carlos.mendes@example.com",
