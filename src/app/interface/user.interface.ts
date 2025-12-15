@@ -1,3 +1,4 @@
+import { IEndereco } from "./endereco.interface";
 import { IStatus } from "./status.interface";
 
 export interface IUser{
@@ -6,8 +7,9 @@ export interface IUser{
     senha: string;
     idade: number;
     telefone: string;
+    endereco: IEndereco;
     ativo: boolean;
     funcao: string;
-    datacadastro: string
-    status: IStatus
+    datacadastro: string;
+    status: IStatus;
 }
