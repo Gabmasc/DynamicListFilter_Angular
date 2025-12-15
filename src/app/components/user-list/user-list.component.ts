@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-user-list',
@@ -8,4 +8,10 @@ import { Component } from '@angular/core';
 export class UserListComponent {
 
   displayedColumns : string [] = ['Nome', 'Data', 'Status']
+
+  @Output('userSelected') userSelectedEmitt = new EventEmitter<>()
+
+  onUserSelected(){
+
+  }
 }
