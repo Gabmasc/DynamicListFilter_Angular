@@ -10,7 +10,9 @@ import { UserListComponent } from './user-list/user-list.component';
     UserDetailComponent,
     UserListComponent
   ],
-    imports:[AngularMaterialModule],
+    imports:[
+      AngularMaterialModule
+    ],
     exports:[
       AngularMaterialModule,
       FilterComponent,
