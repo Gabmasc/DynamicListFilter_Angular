@@ -1,3 +1,5 @@
+import { IStatus } from "./status.interface";
+
 export interface IUser{
     nome: string;
     email: string;
@@ -7,7 +9,5 @@ export interface IUser{
     ativo: boolean;
     funcao: string;
     datacadastro: string
-
-
-
+    status: IStatus
 }
