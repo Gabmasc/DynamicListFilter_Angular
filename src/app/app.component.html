@@ -1,11 +1,13 @@
 <div class="container">
     <div class="letft-container">
-        <div class="top-div"></div>
+        <div class="top-div">
+            <app-filter (onfilter)="onFilter($envent)"></app-filter>
+        </div>
         <div class="main-left-div">
-            <app-user-list></app-user-list>
+            <app-user-list [userList]="userListFiltered" (userSelected)="onUserSelected($event)"></app-user-list>
         </div>
     </div>
     <div class="right-container">
-        <app-user-detail></app-user-detail>
+        <app-user-detail [user]="userSelected" *ngIf="showUserDetails"></app-user-detail>
     </div>
 </div>
