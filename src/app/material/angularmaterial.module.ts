@@ -4,6 +4,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+
 
 
 
@@ -15,6 +17,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
         MatTableModule,
         MatDividerModule,
         MatFormFieldModule,
+        MatDatepickerModule,
         
         
     ],
@@ -23,7 +26,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
         MatInputModule,
         MatTableModule,
         MatDividerModule,
-        MatFormFieldModule
+        MatFormFieldModule,
+        MatDatepickerModule,
         
     ]
 })
