@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class FilterComponent {
 
+  statusList = [
+    {description: 'Ativo', value: true},
+    {description: 'Inativo', value: false}
+  ];
+
 }
