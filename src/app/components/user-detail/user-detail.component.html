@@ -5,11 +5,11 @@
         </mat-list-item>
         <mat-divider></mat-divider>
         <mat-list-item role="listitem">
-            <span class="item-key-list-text-black">Nome: </span><span class="item-value-list-text-black">{{ user.nome }}</span>
+            <span class="item-key-list-text-black">Nome: </span><span class="item-value-list-text-black">{{ user.nome | dashIfEmpty }}</span>
         </mat-list-item>
         <mat-divider></mat-divider>
         <mat-list-item role="listitem">
-            <span class="item-key-list-text-black">Email: </span><span class="item-value-list-text-black">{{ user.email }}</span>
+            <span class="item-key-list-text-black">Email: </span><span class="item-value-list-text-black">{{ user.email | dashIfEmpty}}</span>
         </mat-list-item>
         <mat-divider></mat-divider>
         <mat-list-item role="listitem">
@@ -25,11 +25,11 @@
         </mat-list-item>
         <mat-divider></mat-divider>
         <mat-list-item role="listitem">
-            <span class="item-key-list-text-black">Funcao: </span><span class="item-value-list-text-black">{{ user.funcao }}</span>
+            <span class="item-key-list-text-black">Funcao: </span><span class="item-value-list-text-black">{{ user.funcao | dashIfEmpty }}</span>
         </mat-list-item>
         <mat-divider></mat-divider>
         <mat-list-item role="listitem">
-            <span class="item-key-list-text-black">Data cadasto: </span><span class="item-value-list-text-black">{{ user.datacadastro }}</span>
+            <span class="item-key-list-text-black">Data cadasto: </span><span class="item-value-list-text-black">{{ user.datacadastro | dashIfEmpty }}</span>
         </mat-list-item>
     </mat-list>
 </div>
