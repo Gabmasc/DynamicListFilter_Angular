@@ -5,6 +5,7 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { FormsModule } from "@angular/forms";
 import { PipesModule } from "../pipe/pipes.module";
+import { DatePipe } from "@angular/common";
 
 @NgModule({
     declarations:[
@@ -15,7 +16,8 @@ import { PipesModule } from "../pipe/pipes.module";
     imports:[
       FormsModule,
       AngularMaterialModule,
-      PipesModule
+      PipesModule,
+      DatePipe
     ],
     exports:[
       AngularMaterialModule,
