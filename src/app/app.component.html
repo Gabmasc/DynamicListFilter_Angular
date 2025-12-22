@@ -1,7 +1,7 @@
 <div class="container">
     <div class="letft-container">
         <div class="top-div">
-            <app-filter (onfilter)="onFilter($envent)"></app-filter>
+            <app-filter (onfilter)="onFilter($event)"></app-filter>
         </div>
         <div class="main-left-div">
             <app-user-list [userList]="userListFiltered" (userSelected)="onUserSelected($event)"></app-user-list>
