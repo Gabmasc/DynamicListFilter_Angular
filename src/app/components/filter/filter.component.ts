@@ -12,8 +12,7 @@ export class FilterComponent {
     startDate : undefined,
     endDate : undefined,
     status: undefined
-  }
-
+  };
 
   statusList = [
     {description: 'Ativo', value: true},
