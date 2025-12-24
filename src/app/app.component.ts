@@ -38,7 +38,7 @@ userListFiltered: IUser [] = [];
     let filteredList: IUser[] = [];
   
   filteredList = this.filterUsersListByDate(filterOptions.startDate, filterOptions.endDate, filteredList);
-  filteredList = this.filterUsersListByName(filterOptions.name, filteredList);
+  filteredList = this.filterUsersListByName(filterOptions.name, userList);
   filteredList = this.filterUsersListByStatus(filterOptions.status, filteredList);  
 
   return filteredList;
