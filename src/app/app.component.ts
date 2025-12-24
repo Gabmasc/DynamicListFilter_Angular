@@ -38,23 +38,33 @@ filterUsersList(filterOptions: IFilterOptions, userList: IUser[]): IUser[] {
   let filteredList: IUser[] = [];
   
   filteredList = this.filterUsersListByDate(filterOptions.startDate, filterOptions.endDate, filteredList);
-  
+  filteredList = this.filterUsersListName(filterOptions.name, filteredList);  
 
   return filteredList;
   }
 
-  filterUsersListByDate(startDate: Date | undefined, endDate: Date | undefined, filteredList: IUser[]): IUser[] {
-    const DATES_NOT_SELECTED = startDate === undefined || endDate === undefined;
-    if(DATES_NOT_SELECTED){
+filterUsersListByDate(startDate: Date | undefined, endDate: Date | undefined, filteredList: IUser[]): IUser[] {
+  const DATES_NOT_SELECTED = startDate === undefined || endDate === undefined;
+  if(DATES_NOT_SELECTED){
+    return filteredList;
+  }
+  const userListFilteredList = filteredList.filter((user) => isWithinInterval(new Date(user.datacadastro), {
+    start: startDate,
+    end: endDate
+  }));
+  return userListFilteredList;
+  }
+
+  filterUsersListName(typpedName: string | undefined, filteredList: IUser[]): IUser[] {
+    const NAME_NOT_TYPPED = typpedName === undefined;
+
+    if(NAME_NOT_TYPPED){
       return filteredList;
     }
 
-    const userListFilteredList = filteredList.filter((user) => isWithinInterval(new Date(user.datacadastro), {
-      start: startDate,
-      end: endDate
-    }));
+    const filteredListByName = filteredList.filter((user) => user.nome.toLowerCase().includes(typpedName.toLowerCase()));
 
-    return userListFilteredList;
+    return filteredListByName;
   }
 
 }
