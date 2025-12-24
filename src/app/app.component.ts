@@ -15,56 +15,68 @@ userSelected: IUser = {} as IUser;
 userList: IUser [] = [];
 userListFiltered: IUser [] = [];
 
-ngOnInit() {
-  setTimeout(() => {
-    this.userList = UserList;
-    this.userListFiltered = this.userList;
-  }, 2000)
-};
+  ngOnInit() {
+    setTimeout(() => {
+      this.userList = UserList;
+      this.userListFiltered = this.userList;
+    }, 2000)
+  };
 
-onUserSelected(user: IUser){
-  this.userSelected = user;
+  onUserSelected(user: IUser){
+    this.userSelected = user;
 
-  this.showUserDetails = true;
-}
+    this.showUserDetails = true;
+  }
 
-onFilter(filterOptions: IFilterOptions){
-  console.log(filterOptions);
+  onFilter(filterOptions: IFilterOptions){
+    console.log(filterOptions);
 
-  this.userListFiltered = this.filterUsersList(filterOptions, this.userList);
-}
+    this.userListFiltered = this.filterUsersList(filterOptions, this.userList);
+  }
 
-filterUsersList(filterOptions: IFilterOptions, userList: IUser[]): IUser[] {
-  let filteredList: IUser[] = [];
+  filterUsersList(filterOptions: IFilterOptions, userList: IUser[]): IUser[] {
+    let filteredList: IUser[] = [];
   
   filteredList = this.filterUsersListByDate(filterOptions.startDate, filterOptions.endDate, filteredList);
-  filteredList = this.filterUsersListName(filterOptions.name, filteredList);  
+  filteredList = this.filterUsersListByName(filterOptions.name, filteredList);
+  filteredList = this.filterUsersListByStatus(filterOptions.status, filteredList);  
 
   return filteredList;
   }
 
-filterUsersListByDate(startDate: Date | undefined, endDate: Date | undefined, filteredList: IUser[]): IUser[] {
-  const DATES_NOT_SELECTED = startDate === undefined || endDate === undefined;
-  if(DATES_NOT_SELECTED){
-    return filteredList;
-  }
-  const userListFilteredList = filteredList.filter((user) => isWithinInterval(new Date(user.datacadastro), {
-    start: startDate,
-    end: endDate
-  }));
-  return userListFilteredList;
-  }
+  filterUsersListByDate(startDate: Date | undefined, endDate: Date | undefined, filteredList: IUser[]): IUser[] {
+    const DATES_NOT_SELECTED = startDate === undefined || endDate === undefined;
+    if(DATES_NOT_SELECTED){
+      return filteredList;
+    }
+    const userListFilteredList = filteredList.filter((user) => isWithinInterval(new Date(user.datacadastro), {
+      start: startDate,
+      end: endDate
+    }));
+    return userListFilteredList;
+    }
 
-  filterUsersListName(typpedName: string | undefined, filteredList: IUser[]): IUser[] {
+  filterUsersListByName(typpedName: string | undefined, filteredList: IUser[]): IUser[] {
     const NAME_NOT_TYPPED = typpedName === undefined;
 
     if(NAME_NOT_TYPPED){
       return filteredList;
-    }
+        }
 
     const filteredListByName = filteredList.filter((user) => user.nome.toLowerCase().includes(typpedName.toLowerCase()));
 
     return filteredListByName;
+  }
+   
+  filterUsersListByStatus(status: boolean | undefined, filteredList: IUser[]): IUser[] {
+    const STATUS_NOT_SELECTED = status === undefined;
+
+    if(STATUS_NOT_SELECTED){
+      return filteredList;
+    }
+
+    const filteredListByStatus = filteredList.filter((user) => user.ativo === status);
+    return filteredListByStatus;
   }
 
 }
