@@ -7,12 +7,15 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import {provideNativeDateAdapter} from '@angular/material/core';
+
 
 
 
 
 
 @NgModule({
+    providers: [ provideNativeDateAdapter() ],
     imports:[
         MatListModule,
         MatInputModule,
